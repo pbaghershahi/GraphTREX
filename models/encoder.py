@@ -5,7 +5,7 @@ import torch.optim as optim
 import utils
 
 from constants import *
-from transformers import *
+from transformers import AutoModel
 
 class TransformerEncoder(nn.Module):
     def __init__(self, configs, device):

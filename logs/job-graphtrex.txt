@@ -1,0 +1,470 @@
+dataset:i2b2
+Config basic
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', '')])
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', ''), ('entity_types', ['not-entity', 'ADMISSION', 'DISCHARGE', 'TREATMENT', 'PROBLEM', 'TEST', 'CLINICAL_DEPT', 'EVIDENTIAL', 'DATE', 'OCCURRENCE', 'TIME', 'DURATION', 'FREQUENCY']), ('relation_types', ['not-relation', 'BEFORE', 'AFTER', 'OVERLAP']), ('symmetric_relation', False), ('notEntityIndex', 0), ('notRelationIndex', 0), ('save_dir', '/ielightdata/GraphTREX/tmp/i2b2_basic')])
+dataset:i2b2
+Config basic
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', '')])
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', ''), ('entity_types', ['not-entity', 'ADMISSION', 'DISCHARGE', 'TREATMENT', 'PROBLEM', 'TEST', 'CLINICAL_DEPT', 'EVIDENTIAL', 'DATE', 'OCCURRENCE', 'TIME', 'DURATION', 'FREQUENCY']), ('relation_types', ['not-relation', 'BEFORE', 'AFTER', 'OVERLAP']), ('symmetric_relation', False), ('notEntityIndex', 0), ('notRelationIndex', 0), ('save_dir', '/ielightdata/GraphTREX/tmp/i2b2_basic')])
+dataset:i2b2
+Config basic
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', '')])
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', ''), ('entity_types', ['not-entity', 'ADMISSION', 'DISCHARGE', 'TREATMENT', 'PROBLEM', 'TEST', 'CLINICAL_DEPT', 'EVIDENTIAL', 'DATE', 'OCCURRENCE', 'TIME', 'DURATION', 'FREQUENCY']), ('relation_types', ['not-relation', 'BEFORE', 'AFTER', 'OVERLAP']), ('symmetric_relation', False), ('notEntityIndex', 0), ('notRelationIndex', 0), ('save_dir', '/ielightdata/GraphTREX/tmp/i2b2_basic')])
+length of dataset train:181
+dataset:i2b2
+Config basic
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', '')])
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('span_linear_2', False), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', ''), ('entity_types', ['not-entity', 'ADMISSION', 'DISCHARGE', 'TREATMENT', 'PROBLEM', 'TEST', 'CLINICAL_DEPT', 'EVIDENTIAL', 'DATE', 'OCCURRENCE', 'TIME', 'DURATION', 'FREQUENCY']), ('relation_types', ['not-relation', 'BEFORE', 'AFTER', 'OVERLAP']), ('symmetric_relation', False), ('notEntityIndex', 0), ('notRelationIndex', 0), ('save_dir', '/ielightdata/GraphTREX/tmp/i2b2_basic')])
+length of dataset train:181
+#entities:99 #relations:350
+#entities:216 #relations:858
+#entities:35 #relations:120
+#entities:333 #relations:1186
+#entities:53 #relations:200
+#entities:39 #relations:134
+#entities:39 #relations:142
+#entities:95 #relations:374
+#entities:49 #relations:180
+#entities:111 #relations:418
+#entities:295 #relations:1108
+#entities:65 #relations:248
+#entities:40 #relations:152
+#entities:99 #relations:396
+#entities:66 #relations:256
+#entities:47 #relations:170
+#entities:27 #relations:94
+#entities:120 #relations:418
+#entities:87 #relations:230
+#entities:108 #relations:388
+#entities:46 #relations:140
+#entities:34 #relations:128
+#entities:121 #relations:450
+#entities:73 #relations:268
+#entities:51 #relations:194
+#entities:70 #relations:254
+#entities:60 #relations:216
+#entities:177 #relations:598
+#entities:45 #relations:164
+#entities:178 #relations:662
+#entities:61 #relations:214
+#entities:107 #relations:388
+#entities:61 #relations:214
+#entities:105 #relations:402
+#entities:57 #relations:204
+#entities:135 #relations:474
+#entities:100 #relations:398
+#entities:148 #relations:550
+#entities:125 #relations:466
+#entities:134 #relations:504
+#entities:126 #relations:486
+#entities:76 #relations:266
+#entities:177 #relations:676
+#entities:79 #relations:288
+#entities:79 #relations:286
+#entities:80 #relations:280
+#entities:108 #relations:362
+#entities:50 #relations:178
+#entities:158 #relations:560
+#entities:102 #relations:410
+#entities:59 #relations:198
+#entities:91 #relations:332
+#entities:38 #relations:124
+#entities:19 #relations:68
+#entities:34 #relations:118
+#entities:68 #relations:214
+#entities:91 #relations:330
+#entities:48 #relations:164
+#entities:120 #relations:394
+#entities:38 #relations:108
+#entities:68 #relations:248
+#entities:64 #relations:216
+#entities:255 #relations:884
+#entities:90 #relations:334
+#entities:80 #relations:272
+#entities:66 #relations:238
+#entities:39 #relations:114
+#entities:76 #relations:248
+#entities:151 #relations:526
+#entities:103 #relations:362
+#entities:176 #relations:618
+#entities:103 #relations:346
+#entities:98 #relations:370
+#entities:189 #relations:692
+#entities:50 #relations:184
+#entities:15 #relations:38
+#entities:86 #relations:336
+#entities:94 #relations:336
+#entities:85 #relations:318
+#entities:108 #relations:410
+#entities:91 #relations:330
+#entities:87 #relations:300
+#entities:243 #relations:870
+#entities:67 #relations:256
+#entities:53 #relations:166
+#entities:20 #relations:66
+#entities:71 #relations:232
+#entities:163 #relations:534
+#entities:48 #relations:178
+#entities:45 #relations:152
+#entities:117 #relations:368
+#entities:99 #relations:362
+#entities:327 #relations:1196
+#entities:34 #relations:118
+#entities:58 #relations:224
+#entities:83 #relations:318
+#entities:139 #relations:544
+#entities:33 #relations:106
+#entities:76 #relations:264
+#entities:63 #relations:210
+#entities:49 #relations:156
+#entities:66 #relations:212
+#entities:32 #relations:106
+#entities:72 #relations:196
+#entities:113 #relations:430
+#entities:68 #relations:256
+#entities:266 #relations:716
+#entities:27 #relations:92
+#entities:230 #relations:802
+#entities:63 #relations:208
+#entities:58 #relations:220
+#entities:87 #relations:304
+#entities:90 #relations:338
+#entities:84 #relations:320
+#entities:81 #relations:314
+#entities:81 #relations:316
+#entities:179 #relations:628
+#entities:66 #relations:244
+#entities:46 #relations:88
+#entities:96 #relations:348
+#entities:449 #relations:1682
+#entities:156 #relations:558
+#entities:18 #relations:48
+#entities:163 #relations:592
+#entities:120 #relations:486
+#entities:75 #relations:264
+#entities:61 #relations:210
+#entities:264 #relations:882
+#entities:55 #relations:202
+#entities:183 #relations:700
+#entities:78 #relations:274
+#entities:54 #relations:192
+#entities:67 #relations:222
+#entities:155 #relations:596
+#entities:89 #relations:268
+#entities:196 #relations:724
+#entities:46 #relations:148
+#entities:57 #relations:194
+#entities:134 #relations:494
+#entities:226 #relations:390
+#entities:48 #relations:170
+#entities:76 #relations:280
+#entities:81 #relations:300
+#entities:246 #relations:862
+#entities:88 #relations:338
+#entities:95 #relations:322
+#entities:126 #relations:434
+#entities:56 #relations:204
+#entities:56 #relations:166
+#entities:31 #relations:108
+#entities:212 #relations:806
+#entities:107 #relations:430
+#entities:94 #relations:296
+#entities:121 #relations:440
+#entities:89 #relations:334
+#entities:61 #relations:206
+#entities:46 #relations:162
+#entities:168 #relations:662
+#entities:127 #relations:456
+#entities:37 #relations:144
+#entities:144 #relations:530
+#entities:78 #relations:290
+#entities:147 #relations:534
+#entities:83 #relations:266
+#entities:110 #relations:390
+#entities:121 #relations:374
+#entities:188 #relations:672
+#entities:74 #relations:256
+#entities:127 #relations:428
+#entities:60 #relations:202
+#entities:189 #relations:638
+#entities:102 #relations:368
+#entities:52 #relations:192
+#entities:29 #relations:104
+#entities:118 #relations:462
+#entities:56 #relations:194
+#entities:178 #relations:706
+#entities:41 #relations:150
+#entities:90 #relations:328
+#entities:55 #relations:210
+#entities:72 #relations:266
+length of dataset dev:9
+#entities:92 #relations:328
+#entities:148 #relations:534
+#entities:79 #relations:308
+#entities:53 #relations:198
+#entities:67 #relations:234
+#entities:51 #relations:200
+#entities:89 #relations:290
+#entities:104 #relations:364
+#entities:80 #relations:158
+CUDA AVAILABLE:True
+Train Size = 181 | Dev Size = 9
+Initialize a new model | 1130939212 parameters
+Prepared the optimizer and the scheduler
+
+Starting epoch 1
+100 Average Loss = 0.5919824332619706
+dataset:i2b2
+Config basic
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', '')])
+ConfigTree([('max_span_width', 7), ('feature_size', 7), ('tempeval', False), ('use_pretrained', False), ('seed', 1), ('no_cuda', False), ('report_frequency', 100), ('gradient_checkpointing', False), ('FLIP', True), ('USE_POOLED_CONTEXT', True), ('USE_ENTITY_TYPES', True), ('use_prod', True), ('use_minus', False), ('use_plus', False), ('loss_fn', 'ce'), ('USE_GNN', True), ('add_dummy_nodes', True), ('add_sent_nodes', True), ('gnn_attn_heads', 2), ('gnn_num_layers', 2), ('gnn_with_decoder', False), ('POOLING_MAXL_RATIO', 0.5), ('POOLING_REDUCTION', 'max'), ('pred_threshold', 0.4), ('itrs_refine', 1), ('residual_coef', 1.0), ('epochs', 20), ('transformer_learning_rate', 3e-05), ('task_learning_rate', 0.0008), ('dropout_rate', 0.35), ('batch_size', 8), ('max_grad_norm', 1.0), ('ned_pretrain_epochs', 2), ('freeze_encoder', False), ('entity_emb', False), ('entity_type_emb_size', 1), ('span_emb_size', 1000), ('transformer', 'microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext'), ('bert_emb_size', 768), ('max_tokens', 512), ('span_hidden_size', 1000), ('mention_scorer_ffnn_size', 1000), ('mention_scorer_ffnn_depth', 2), ('mention_linker_ffnn_size', 1000), ('mention_linker_ffnn_depth', 2), ('dataset', 'i2b2'), ('modelname', 'graphtrex'), ('split_nb', ''), ('entity_types', ['not-entity', 'ADMISSION', 'DISCHARGE', 'TREATMENT', 'PROBLEM', 'TEST', 'CLINICAL_DEPT', 'EVIDENTIAL', 'DATE', 'OCCURRENCE', 'TIME', 'DURATION', 'FREQUENCY']), ('relation_types', ['not-relation', 'BEFORE', 'AFTER', 'OVERLAP']), ('symmetric_relation', False), ('notEntityIndex', 0), ('notRelationIndex', 0), ('save_dir', '/ielightdata/GraphTREX/tmp/i2b2_basic')])
+length of dataset train:181
+#entities:99 #relations:350
+#entities:216 #relations:858
+#entities:35 #relations:120
+#entities:333 #relations:1186
+#entities:53 #relations:200
+#entities:39 #relations:134
+#entities:39 #relations:142
+#entities:95 #relations:374
+#entities:49 #relations:180
+#entities:111 #relations:418
+#entities:295 #relations:1108
+#entities:65 #relations:248
+#entities:40 #relations:152
+#entities:99 #relations:396
+#entities:66 #relations:256
+#entities:47 #relations:170
+#entities:27 #relations:94
+#entities:120 #relations:418
+#entities:87 #relations:230
+#entities:108 #relations:388
+#entities:46 #relations:140
+#entities:34 #relations:128
+#entities:121 #relations:450
+#entities:73 #relations:268
+#entities:51 #relations:194
+#entities:70 #relations:254
+#entities:60 #relations:216
+#entities:177 #relations:598
+#entities:45 #relations:164
+#entities:178 #relations:662
+#entities:61 #relations:214
+#entities:107 #relations:388
+#entities:61 #relations:214
+#entities:105 #relations:402
+#entities:57 #relations:204
+#entities:135 #relations:474
+#entities:100 #relations:398
+#entities:148 #relations:550
+#entities:125 #relations:466
+#entities:134 #relations:504
+#entities:126 #relations:486
+#entities:76 #relations:266
+#entities:177 #relations:676
+#entities:79 #relations:288
+#entities:79 #relations:286
+#entities:80 #relations:280
+#entities:108 #relations:362
+#entities:50 #relations:178
+#entities:158 #relations:560
+#entities:102 #relations:410
+#entities:59 #relations:198
+#entities:91 #relations:332
+#entities:38 #relations:124
+#entities:19 #relations:68
+#entities:34 #relations:118
+#entities:68 #relations:214
+#entities:91 #relations:330
+#entities:48 #relations:164
+#entities:120 #relations:394
+#entities:38 #relations:108
+#entities:68 #relations:248
+#entities:64 #relations:216
+#entities:255 #relations:884
+#entities:90 #relations:334
+#entities:80 #relations:272
+#entities:66 #relations:238
+#entities:39 #relations:114
+#entities:76 #relations:248
+#entities:151 #relations:526
+#entities:103 #relations:362
+#entities:176 #relations:618
+#entities:103 #relations:346
+#entities:98 #relations:370
+#entities:189 #relations:692
+#entities:50 #relations:184
+#entities:15 #relations:38
+#entities:86 #relations:336
+#entities:94 #relations:336
+#entities:85 #relations:318
+#entities:108 #relations:410
+#entities:91 #relations:330
+#entities:87 #relations:300
+#entities:243 #relations:870
+#entities:67 #relations:256
+#entities:53 #relations:166
+#entities:20 #relations:66
+#entities:71 #relations:232
+#entities:163 #relations:534
+#entities:48 #relations:178
+#entities:45 #relations:152
+#entities:117 #relations:368
+#entities:99 #relations:362
+#entities:327 #relations:1196
+#entities:34 #relations:118
+#entities:58 #relations:224
+#entities:83 #relations:318
+#entities:139 #relations:544
+#entities:33 #relations:106
+#entities:76 #relations:264
+#entities:63 #relations:210
+#entities:49 #relations:156
+#entities:66 #relations:212
+#entities:32 #relations:106
+#entities:72 #relations:196
+#entities:113 #relations:430
+#entities:68 #relations:256
+#entities:266 #relations:716
+#entities:27 #relations:92
+#entities:230 #relations:802
+#entities:63 #relations:208
+#entities:58 #relations:220
+#entities:87 #relations:304
+#entities:90 #relations:338
+#entities:84 #relations:320
+#entities:81 #relations:314
+#entities:81 #relations:316
+#entities:179 #relations:628
+#entities:66 #relations:244
+#entities:46 #relations:88
+#entities:96 #relations:348
+#entities:449 #relations:1682
+#entities:156 #relations:558
+#entities:18 #relations:48
+#entities:163 #relations:592
+#entities:120 #relations:486
+#entities:75 #relations:264
+#entities:61 #relations:210
+#entities:264 #relations:882
+#entities:55 #relations:202
+#entities:183 #relations:700
+#entities:78 #relations:274
+#entities:54 #relations:192
+#entities:67 #relations:222
+#entities:155 #relations:596
+#entities:89 #relations:268
+#entities:196 #relations:724
+#entities:46 #relations:148
+#entities:57 #relations:194
+#entities:134 #relations:494
+#entities:226 #relations:390
+#entities:48 #relations:170
+#entities:76 #relations:280
+#entities:81 #relations:300
+#entities:246 #relations:862
+#entities:88 #relations:338
+#entities:95 #relations:322
+#entities:126 #relations:434
+#entities:56 #relations:204
+#entities:56 #relations:166
+#entities:31 #relations:108
+#entities:212 #relations:806
+#entities:107 #relations:430
+#entities:94 #relations:296
+#entities:121 #relations:440
+#entities:89 #relations:334
+#entities:61 #relations:206
+#entities:46 #relations:162
+#entities:168 #relations:662
+#entities:127 #relations:456
+#entities:37 #relations:144
+#entities:144 #relations:530
+#entities:78 #relations:290
+#entities:147 #relations:534
+#entities:83 #relations:266
+#entities:110 #relations:390
+#entities:121 #relations:374
+#entities:188 #relations:672
+#entities:74 #relations:256
+#entities:127 #relations:428
+#entities:60 #relations:202
+#entities:189 #relations:638
+#entities:102 #relations:368
+#entities:52 #relations:192
+#entities:29 #relations:104
+#entities:118 #relations:462
+#entities:56 #relations:194
+#entities:178 #relations:706
+#entities:41 #relations:150
+#entities:90 #relations:328
+#entities:55 #relations:210
+#entities:72 #relations:266
+length of dataset dev:9
+#entities:92 #relations:328
+#entities:148 #relations:534
+#entities:79 #relations:308
+#entities:53 #relations:198
+#entities:67 #relations:234
+#entities:51 #relations:200
+#entities:89 #relations:290
+#entities:104 #relations:364
+#entities:80 #relations:158
+CUDA AVAILABLE:True
+Train Size = 181 | Dev Size = 9
+Initialize a new model | 1130939212 parameters
+Prepared the optimizer and the scheduler
+
+Starting epoch 1
+100 Average Loss = 0.5919714240978161
+Mention Macro F1 = 0.0
+Mention class-wise Micro F1 = {'FREQUENCY': 0, 'OCCURRENCE': 0, 'TIME': 0, 'DURATION': 0, 'TREATMENT': 0, 'CLINICAL_DEPT': 0, 'EVIDENTIAL': 0, 'TEST': 0, 'DISCHARGE': 0, 'DATE': 0, 'ADMISSION': 0, 'PROBLEM': 0}
+Relation Macro F1 = 0.0
+Relation class-wise Micro F1: {'OVERLAP': 0, 'BEFORE': 0, 'AFTER': 0}
+Mention Score (F1) = 0 | Relation Extraction (F1) = 0
+Total hours elapsed: (0.0, 590.7592070102692)
+
+Starting epoch 2
+200 Average Loss = 0.16124784753013116
+300 Average Loss = 0.12130910018458962
+Mention Macro F1 = 0.0
+Mention class-wise Micro F1 = {'FREQUENCY': 0, 'OCCURRENCE': 0, 'TIME': 0, 'DURATION': 0, 'TREATMENT': 0, 'CLINICAL_DEPT': 0, 'EVIDENTIAL': 0, 'TEST': 0, 'DISCHARGE': 0, 'DATE': 0, 'ADMISSION': 0, 'PROBLEM': 0}
+Relation Macro F1 = 0.0
+Relation class-wise Micro F1: {'OVERLAP': 0, 'BEFORE': 0, 'AFTER': 0}
+Mention Score (F1) = 0 | Relation Extraction (F1) = 0
+Total hours elapsed: (0.0, 1179.9332501888275)
+
+Starting epoch 3
+400 Average Loss = 0.24400895862625196
+500 Average Loss = 0.10620137071236968
+Mention Macro F1 = 0.0
+Mention class-wise Micro F1 = {'FREQUENCY': 0, 'OCCURRENCE': 0, 'TIME': 0, 'DURATION': 0, 'TREATMENT': 0, 'CLINICAL_DEPT': 0, 'EVIDENTIAL': 0, 'TEST': 0, 'DISCHARGE': 0, 'DATE': 0, 'ADMISSION': 0, 'PROBLEM': 0}
+Relation Macro F1 = 0.0
+Relation class-wise Micro F1: {'OVERLAP': 0, 'BEFORE': 0, 'AFTER': 0}
+Mention Score (F1) = 0 | Relation Extraction (F1) = 0
+Total hours elapsed: (0.0, 1772.6540696620941)
+
+Starting epoch 4
+600 Average Loss = 0.09208677096578938
+700 Average Loss = 1.2583901591133326
+Mention Macro F1 = 0.21929824561403508
+Mention class-wise Micro F1 = {'FREQUENCY': 0, 'OCCURRENCE': 0, 'TIME': 0, 'DURATION': 0, 'TREATMENT': 0, 'CLINICAL_DEPT': 0, 'EVIDENTIAL': 0, 'TEST': 0, 'DISCHARGE': 0, 'DATE': 2.63, 'ADMISSION': 0, 'PROBLEM': 0}
+Relation Macro F1 = 0.0
+Relation class-wise Micro F1: {'OVERLAP': 0, 'BEFORE': 0, 'AFTER': 0}
+Mention Score (F1) = 0.26 | Relation Extraction (F1) = 0
+Saved the model
+Total hours elapsed: (0.0, 2381.431780099869)
+
+Starting epoch 5
+800 Average Loss = 0.4252762203821196
+900 Average Loss = 0.6809465043867627
+Mention Macro F1 = 12.097182641655637
+Mention class-wise Micro F1 = {'FREQUENCY': 0, 'OCCURRENCE': 46.49, 'TIME': 0, 'DURATION': 0, 'TREATMENT': 0, 'CLINICAL_DEPT': 0, 'EVIDENTIAL': 0, 'TEST': 0, 'DISCHARGE': 0, 'DATE': 51.61, 'ADMISSION': 0, 'PROBLEM': 47.06}
+Relation Macro F1 = 0.0
+Relation class-wise Micro F1: {'OVERLAP': 0, 'BEFORE': 0, 'AFTER': 0}
+Mention Score (F1) = 33.57 | Relation Extraction (F1) = 0
+Saved the model
+Total hours elapsed: (0.0, 3076.997871398926)
+
+Starting epoch 6
+1000 Average Loss = 0.315131827759055

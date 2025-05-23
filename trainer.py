@@ -20,11 +20,9 @@ def train(configs):
     torch.cuda.manual_seed(configs['seed'])
 
     tokenizer = AutoTokenizer.from_pretrained(configs['transformer'])
-    if configs['dataset'] == ADE:
-        train, dev = load_data(configs['split_nb'], tokenizer, configs)
-    else: 
-        train = load_data('train',  tokenizer, configs)
-        dev = load_data('dev', tokenizer, configs)
+
+    train = load_data('train',  tokenizer, configs)
+    dev = load_data('dev', tokenizer, configs)
     os.environ["TOKENIZERS_PARALLELISM"] = "true"
     model = JointModel(configs)
     print('Train Size = {} | Dev Size = {}'.format(len(train), len(dev)))
@@ -38,7 +36,7 @@ def train(configs):
             print('Reloaded a pretrained model')
             print('Evaluation on the dev set')
             startevaltime= time.time()
-            _, dev_m_score, dev_rel_score = evaluate(model, dev, configs)
+            _, dev_m_score, dev_rel_score = evaluate(model, dev, configs, "dev")
             print(f"Evaluation time :{time.time()-startevaltime}")
             best_dev_score = (dev_m_score + dev_rel_score) / 2.0
             print(f'all: {best_dev_score}, mention {best_dev_m_score}, relation {best_dev_rel_score}')
@@ -98,7 +96,7 @@ def train(configs):
                 accumulated_loss = RunningAverage()
         # Evaluation after each epoch
         with torch.no_grad():
-            _, dev_m_score, dev_rel_score = evaluate(model, dev, configs)
+            _, dev_m_score, dev_rel_score = evaluate(model, dev, configs, "dev")
             dev_score = (dev_m_score + dev_rel_score) / 2.0
 
         # Save model if it has better dev score
@@ -121,11 +119,12 @@ if __name__ == "__main__":
     # Parse argument
     parser = ArgumentParser()
     parser.add_argument('-c', '--config_name', default='basic')
-    parser.add_argument('-d', '--dataset', default=TEMPORAL, choices=DATASETS)
-    parser.add_argument('-n', '--modelname', default="model") # Only affect ADE dataset
+    parser.add_argument('-d', '--dataset', default=I2B2, choices=DATASETS)
+    parser.add_argument('-n', '--modelname', default="model") 
     parser.add_argument('-m', '--models_dir', default = "tmp")
     # parser.add_argument('-g', '--use_gold', default='False', type =str)
     args = parser.parse_args()
+    #or set to e3c.conf
     print(f"dataset:{args.dataset}")
     # Start training
     configs = prepare_configs(args.config_name, args.dataset, 

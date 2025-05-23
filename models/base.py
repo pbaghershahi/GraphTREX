@@ -5,7 +5,7 @@ import torch.optim as optim
 # import json
 # import random
 
-from transformers import *
+from transformers import get_linear_schedule_with_warmup, AdamW
 # from math import ceil, floor
 
 # Optimizer

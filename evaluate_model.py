@@ -35,7 +35,7 @@ def evaluate_final(args):
     create_dir_if_not_exist('output')
     create_dir_if_not_exist(f'output/json')
     create_dir_if_not_exist(f'output/json/{args["data"]}')
-    if args["data"]in [TEMPORAL]:
+    if args["data"]in [I2B2]:
         create_dir_if_not_exist('output/xml')
         create_dir_if_not_exist(f'output/xml/{args["data"]}')
         create_dir_if_not_exist(f'output/xml/{args["data"]}/{args["split"]}')
@@ -47,7 +47,7 @@ def evaluate_final(args):
     dataset = load_data(args["split"], tokenizer, configs)
     
     starttime = time.time()
-    predictions, _, _ = evaluate(model, dataset, configs)
+    predictions, _, _ = evaluate(model, dataset, configs, "test")
     endtime = time.time()
     print(f"Total time: {divmod(endtime-starttime, 3600)}")
     # if not args["tempeval"]:
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     parser.add_argument('-m','--model_dir', type=str,
                         help='Path to the pretrained models.', required = True)
     parser.add_argument('-s', '--split', default='test', type =str, choices = SPLITS)
-    parser.add_argument('-d', '--dataset', default=E3C, choices=DATASETS)
+    parser.add_argument('-d', '--dataset', default=I2B2, choices=DATASETS)
     parser.add_argument('-n', '--modelname', default='model_basic', type =str)
     parser.add_argument('-v', '--version', default='basic', type =str)
     parser.add_argument('-t', '--tempeval', default='True', type =str)

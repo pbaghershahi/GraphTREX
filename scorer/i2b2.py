@@ -55,7 +55,7 @@ def get_tlinks(data):
     relations.append(rel)
   return relations
 
-def evaluate_temporal(model, dataset, split, modelname, tempeval = False):
+def evaluate_i2b2(model, dataset, split, modelname, tempeval = False):
     num_docs = len(dataset)
     truth_sentences, pred_sentences, keys = {}, {}, set()
     with torch.no_grad():

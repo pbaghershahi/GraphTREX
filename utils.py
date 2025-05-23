@@ -4,7 +4,7 @@ import pyhocon
 import numpy as np
 
 from constants import *
-from transformers import *
+# from transformers import *
 
 def get_overlap(a, b):
     return max(0, min(a[1], b[1]) - max(a[0], b[0]))
@@ -21,6 +21,7 @@ def prepare_configs(config_name, dataset, modelname,
                     models_dir, split_nb="", verbose=True):#use_gold = False, 
     # Extract the requested config
     if verbose: print('Config {}'.format(config_name), flush=True)
+    BASIC_CONF_PATH = join(BASE_PATH, f'configs/{dataset}.conf')
     configs = pyhocon.ConfigFactory.parse_file(BASIC_CONF_PATH)[config_name]
     configs['dataset'] = dataset
     configs['modelname'] = modelname
@@ -29,12 +30,12 @@ def prepare_configs(config_name, dataset, modelname,
     if verbose: print(configs, flush=True)
 
     # Specific configs for each dataset
-    if configs['dataset'] == TEMPORAL:
-        configs['entity_types'] = TEMPORAL_ENTITY_TYPES
-        configs['relation_types'] = TEMPORAL_RELATION_TYPES
+    if configs['dataset'] == I2B2:
+        configs['entity_types'] = I2B2_ENTITY_TYPES
+        configs['relation_types'] = I2B2_RELATION_TYPES
         configs['symmetric_relation'] = False
-        configs["notEntityIndex"] = TEMPORAL_ENTITY_TYPES.index(NOT_ENTITY)
-        configs["notRelationIndex"] = TEMPORAL_RELATION_TYPES.index(NOT_RELATION)
+        configs["notEntityIndex"] = I2B2_ENTITY_TYPES.index(NOT_ENTITY)
+        configs["notRelationIndex"] = I2B2_RELATION_TYPES.index(NOT_RELATION)
     elif configs['dataset'] == E3C:
         configs['entity_types'] = E3C_ENTITY_TYPES
         configs['relation_types'] = E3C_RELATION_TYPES

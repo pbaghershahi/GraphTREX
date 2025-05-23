@@ -13,10 +13,7 @@ def read_split(raw_insts, tokenizer, configs, split):
   relationsbytype={rtype:0 for rtype in configs['relation_types'] if rtype!=NOT_RELATION}
   avg_entity_len={etype:(0,0) for etype in configs['entity_types'] if etype!=NOT_ENTITY}
   for inst in raw_insts:
-    id, text = inst['file_id'], inst['text']
-    if configs["transformer"] == "yikuan8/Clinical-Longformer":
-        text = text.lower()
-    
+    id, text = inst['file_id'], inst['text']    
     raw_entities, raw_timexes, raw_interactions = inst.get('entities', {}),inst.get('timexes', {}), inst.get('relations', {})
     tokenization = tokenize(tokenizer, re.split(" ", text))
     startchar2token, endchar2token = tokenization['startchar2token'], tokenization['endchar2token']
@@ -59,37 +56,6 @@ def read_split(raw_insts, tokenizer, configs, split):
         enumid2eid[enumid] = int(eid)
         eid2enumid[int(eid)] = enumid
         enumid += 1
-    
-    # for eid, ent in raw_timexes.items(): #event, timex, sectimes 
-    #     etype = ent['type']
-    #     if etype=='TIME':continue# not in configs["entity_types"]: 
-    #     #   continue
-    #     # if etype in ['DATE', 'DURATION', 'SET', 'QUANTIFIER' ,'SET', 'PREPOSTEXP']:
-    #     etype= 'TIMEX'
-
-    #     start, end = int(ent['start']) , int(ent['end'])
-    #     try:
-    #       start_token = startchar2token[start] 
-    #     except:
-    #         print(f"Error mapping token boundary: timex start:{start} text:{text[start:end]}")
-    #         continue
-    #     try:
-    #       end_token = endchar2token[end]
-    #     except:
-    #           print(f"Error mapping token boundary: timex end:{end} text:{text[start:end]}|eid: {eid}|file: {id}")
-    #           continue
-        
-    #     avg_entity_len[etype]=(avg_entity_len[etype][0]+end_token-start_token+1, avg_entity_len[etype][1]+1)
-    #     if etype not in max_len.keys() or end_token-start_token+1>max_len[etype][0]:
-    #         max_len[etype]= (end_token-start_token+1, text[start:end])
-    #     entities.append({'label': configs["entity_types"].index(etype),
-    #                       'entity_id': enumid,'start_char': start, 'end_char': end, 'name':text[start:end],
-    #                       'start_token': start_token, 'end_token': end_token})
-    #     inst_data['entities'].append({'label': etype,
-    #                                 'start': start, 'end': end})
-    #     enumid2eid[enumid] = int(eid)
-    #     eid2enumid[int(eid)] = enumid
-    #     enumid += 1
            
     # Compute relations
     relations = []
@@ -123,36 +89,13 @@ def read_split(raw_insts, tokenizer, configs, split):
            if label == "OVERLAP":
              relations.append({'participants': [p2, p1], 'label': E3C_RELATION_TYPES.index(label)})
              inst_data['interactions'].append({'participants': [p2, p1], 'label': label, 'probability':1})
-        #   if label =="BEFORE":
-        #     relations.append({'participants': [p2, p1], 'label': E3C_RELATION_TYPES.index("AFTER")})
-        #     inst_data['interactions'].append({'participants': [p2, p1],'label': "AFTER", 'probability':1})
-        #   if label =="CONTAINS":
-        #     relations.append({'participants': [p2, p1], 'label': E3C_RELATION_TYPES.index("IS_CONTAINED")})
-        #     inst_data['interactions'].append({'participants': [p2, p1],'label': "IS_CONTAINED", 'probability':1})
-          
-        # #   if label =="ENDS-ON":
-        #     relations.append({'participants': [p2, p1], 'label': E3C_RELATION_TYPES.index("BEGINS-ON")})
-        #     inst_data['interactions'].append({'participants': [p2, p1],'label': "BEGINS-ON", 'probability':1})
-        #   if label =="BEGINS-ON":
-        #     relations.append({'participants': [p2, p1], 'label': E3C_RELATION_TYPES.index("ENDS-ON")})
-        #     inst_data['interactions'].append({'participants': [p2, p1],'label': "ENDS-ON", 'probability':1})
-    
     inst_data['interactions'] = [eval(s) for s in set([str(dic) for dic in inst_data['interactions']])]
     data_inst = DataInstance(inst_data, id, text, tokenization, configs["notEntityIndex"], entities, relations, configs["max_tokens"])
     data_insts.append(data_inst)
-  #   print(f"#tokens:{len(tokenization['tokens'])}|#entities:{len(entities)} #relations:{len(relations)} max_ent_tokens:{max_len}")
-  # avg_entity_lens= {}
-  # for etype in avg_entity_len.keys():
-  #   if avg_entity_len[etype][1]!=0:
-  #     avg_entity_lens[etype]= avg_entity_len[etype][0]/avg_entity_len[etype][1]
-  # print(f"average entity lengths in the set:{avg_entity_lens}")
-  # print(f"relation in gold: {relationsbytype}")
   return data_insts
 
 def load_e3c_dataset(base_path, tokenizer, split_nb, configs):
   fp = join(base_path, split_nb+".json")
-  if configs["transformer"] == "yikuan8/Clinical-Longformer":
-      print("longformer")
   with open(fp, 'r', encoding='utf-8') as f:
       raw = json.load(f)
   print(f"length of dataset {split_nb}:{len(raw)}")

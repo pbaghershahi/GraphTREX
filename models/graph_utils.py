@@ -1,4 +1,3 @@
-from torch_geometric.nn import HANConv
 from torch_geometric.data import HeteroData
 import torch
 import torch.nn.functional as F

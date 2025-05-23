@@ -12,11 +12,8 @@ def read_split(raw_insts, tokenizer, configs):
   data_insts = []
   for inst in raw_insts:
     id, text = inst['file_id'], inst['text']
-    if configs["transformer"] == "yikuan8/Clinical-Longformer":
-        text = text.lower()
-
     raw_entities, raw_interactions = inst.get('entities', []), inst.get('relations', [])
-    tokenization = tokenize(tokenizer, re.split(" ", text)[:configs["MAX_WORDS"]])
+    tokenization = tokenize(tokenizer, re.split(" ", text))#[:configs["MAX_WORDS"]])
     startchar2token, endchar2token = tokenization['startchar2token'], tokenization['endchar2token']
 
     entities = []
@@ -38,25 +35,22 @@ def read_split(raw_insts, tokenizer, configs):
             start, end = int(ent['start']) , int(ent['end'])
             start_token = startchar2token[start] 
             end_token = endchar2token[end]
-            etype = ent['type']
-            
+            etype = ent['type']            
             name = ent['text']
-            if configs["transformer"] == "yikuan8/Clinical-Longformer":
-              name= name.lower()
             if (start, end) in appeared:
               # priority-based assignment
-              if appeared[(start, end)]['label']<=TEMPORAL_ENTITY_TYPES.index(etype):
+              if appeared[(start, end)]['label']<=I2B2_ENTITY_TYPES.index(etype):
                 remapped[ent['id']]=num2eid[appeared[(start, end)]['entity_id']]
                 eid2num[ent['id']]=appeared[(start, end)]['entity_id']
                 continue
               #else map old id to this
-              appeared[(start, end)]['label']=TEMPORAL_ENTITY_TYPES.index(etype)
+              appeared[(start, end)]['label']=I2B2_ENTITY_TYPES.index(etype)
               remapped[num2eid[appeared[(start, end)]['entity_id']]]= ent['id']
               eid2num[ent['id']]=appeared[(start, end)]['entity_id']
               num2eid[appeared[(start, end)]['entity_id']]=ent['id']
             else:
               appeared[(start, end)] = {
-                'label': TEMPORAL_ENTITY_TYPES.index(etype),
+                'label': I2B2_ENTITY_TYPES.index(etype),
                 'entity_id': eid, 'name':name,
                 'start_char': start, 'end_char': end,
                 'start_token': start_token, 'end_token': end_token
@@ -70,7 +64,7 @@ def read_split(raw_insts, tokenizer, configs):
     for entity in appeared.values():
       entities.append(entity)
       inst_data['entities'].append({
-        'label': TEMPORAL_ENTITY_TYPES[entity['label']],
+        'label': I2B2_ENTITY_TYPES[entity['label']],
         'names': entity['name'],
         'start': entity['start_char'],
         'end': entity['end_char']
@@ -97,20 +91,20 @@ def read_split(raw_insts, tokenizer, configs):
             label = 'BEFORE'
           if label in {'DURING', 'SIMULTANEOUS'}:
             label = 'OVERLAP'
-          relations.append({'participants': [p1, p2], 'label': TEMPORAL_RELATION_TYPES.index(label)})
+          relations.append({'participants': [p1, p2], 'label': I2B2_RELATION_TYPES.index(label)})
           inst_data['interactions'].append({
               'participants': [p1, p2],
               'label': label, 'probability':1
             })
           if configs["FLIP"]:
             if label == "OVERLAP":
-              relations.append({'participants': [p2, p1], 'label': TEMPORAL_RELATION_TYPES.index(label)})
+              relations.append({'participants': [p2, p1], 'label': I2B2_RELATION_TYPES.index(label)})
               inst_data['interactions'].append({'participants': [p2, p1], 'label': label, 'probability':1})
             if label =="BEFORE":
-              relations.append({'participants': [p2, p1], 'label': TEMPORAL_RELATION_TYPES.index("AFTER")})
+              relations.append({'participants': [p2, p1], 'label': I2B2_RELATION_TYPES.index("AFTER")})
               inst_data['interactions'].append({'participants': [p2, p1],'label': "AFTER", 'probability':1})
             if label =="AFTER":
-              relations.append({'participants': [p2, p1], 'label': TEMPORAL_RELATION_TYPES.index("BEFORE")})
+              relations.append({'participants': [p2, p1], 'label': I2B2_RELATION_TYPES.index("BEFORE")})
               inst_data['interactions'].append({'participants': [p2, p1],'label': "BEFORE", 'probability':1})
         except Exception as e:
           # print(eid2num)
@@ -118,15 +112,13 @@ def read_split(raw_insts, tokenizer, configs):
           continue
     
     inst_data['interactions'] = [eval(s) for s in set([str(dic) for dic in inst_data['interactions']])]
-    data_inst = DataInstance(inst_data, id, text, tokenization, entities, relations, configs["max_tokens"])
+    data_inst = DataInstance(inst_data, id, text, tokenization, configs["notEntityIndex"], entities, relations, configs["max_tokens"])
     data_insts.append(data_inst)
     print(f"#entities:{len(entities)} #relations:{len(relations)}")
   return data_insts
 
-def load_temporal_dataset(base_path, tokenizer, split_nb, configs):
+def load_i2b2_dataset(base_path, tokenizer, split_nb, configs):
   fp = join(base_path, split_nb+".json")
-  if configs["transformer"] == "yikuan8/Clinical-Longformer":
-      print("longformer")
   with open(fp, 'r', encoding='utf-8') as f:
       raw = json.load(f)
   print(f"length of dataset {split_nb}:{len(raw)}")
