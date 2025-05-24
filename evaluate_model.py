@@ -39,8 +39,9 @@ def evaluate_final(args):
         create_dir_if_not_exist('output/xml')
         create_dir_if_not_exist(f'output/xml/{args["data"]}')
         create_dir_if_not_exist(f'output/xml/{args["data"]}/{args["split"]}')
-        create_dir_if_not_exist(xmlpath)
         xmlpath = f'output/xml/{args["data"]}/{args["split"]}/system{args["modelname"].replace("model","")}/'
+        create_dir_if_not_exist(xmlpath)
+        
     output_json_path = os.path.join(f'output/json/{args["data"]}', args["split"]+'_'+args["modelname"].replace("model", "")+'_predictions.json')
 
     tokenizer, model, configs = load_components(args["model_dir"], f'{args["modelname"]}.pt', args["data"], args["version"])#, use_gold = args["use_gold"])
